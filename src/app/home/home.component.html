@@ -1,0 +1,18 @@
+<div class="cards">
+  <div style="margin-bottom: 10px;" *ngFor="let city of listCities">
+    <div class=" card col-12 ">
+      <div>
+        <h4 class=" font-weight-bold">{{city.name}}</h4>
+        <div class="d-flex">
+          <p class="display-4">{{city.main.temp | temperatureConverter : 'C' }}°C
+            | {{city.main.temp | temperatureConverter : 'F' }}°F</p>
+        </div>
+        <div class="d-flex justify-content-between mb-4" style="max-width: 500px;">
+          <p>{{city.weather[0].description}}</p>
+          <p>{{city.wind.speed}} Meter/sec Winds</p>
+          <p>{{city.main.humidity}}% Humidity</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

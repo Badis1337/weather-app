@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row custom-wrapper">
+    <div class="col-md-12">
+      <form>
+        <div class="group-gap">
+          <div class="d-block my-3">
+            <div class="mb-3">
+              <select class="custom-select" (change)="changeCity($event)">
+                <option value="">Choose your city</option>
+                <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedCity!=null" class="d-flex justify-content-center">
+  <div style="margin-bottom: 10px;">
+    <div class=" card col-12 d-flex justify-content-center ">
+      <div>
+        <h4 class=" font-weight-bold">{{selectedCity.name}}</h4>
+        <div class="d-flex ">
+          <p class="display-4">{{selectedCity.main.temp | temperatureConverter : 'C' }}°C
+            | {{selectedCity.main.temp | temperatureConverter : 'F' }}°F</p>
+        </div>
+        <div class="d-flex justify-content-between mb-4" style="max-width: 500px;">
+          <p>{{selectedCity.weather[0].description}}</p>
+          <p>{{selectedCity.wind.speed}} Meter/sec Winds</p>
+          <p>{{selectedCity.main.humidity}}% Humidity</p>
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+          <button (click)="deleteCity()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row custom-wrapper">
+    <div class="col-md-12">
+      <form [formGroup]="myControl" (ngSubmit)="addCity()">
+        <mat-form-field class="example-full-width">
+          <div class="group-gap">
+            <div class="d-block my-3">
+              <div class="mb-3"><p>Click here to add a new city !</p>
+                <input [ngClass]="{ 'is-invalid': submitted }" class="custom-select" style="border:1px solid grey"
+                       type="text" matInput
+                       [formControl]="myControl" [matAutocomplete]="auto">
+                <div *ngIf="submitted" class="invalid-feedback">
+                  <div>Please select a city from the list !</div>
+                </div>
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option style="margin-left:250px;" *ngFor="let option of filteredOptions | async"
+                              [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </div>
+            </div>
+          </div>
+        </mat-form-field>
+        <div class="d-flex justify-content-end ">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
