@@ -7,3 +7,12 @@
 .example-full-width {
   width: 100%;
 }
+.input1{
+  border:1px solid grey
+}
+.options{
+  margin-left:250px;
+}
+.weathercard{
+  max-width: 500px;
+}

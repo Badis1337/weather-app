@@ -26,13 +26,13 @@
           <p class="display-4">{{selectedCity.main.temp | temperatureConverter : 'C' }}°C
             | {{selectedCity.main.temp | temperatureConverter : 'F' }}°F</p>
         </div>
-        <div class="d-flex justify-content-between mb-4" style="max-width: 500px;">
+        <div class="d-flex justify-content-between mb-4 weathercard" >
           <p>{{selectedCity.weather[0].description}}</p>
           <p>{{selectedCity.wind.speed}} Meter/sec Winds</p>
           <p>{{selectedCity.main.humidity}}% Humidity</p>
         </div>
         <div class="d-flex justify-content-center mb-4">
-          <button (click)="deleteCity()">Delete</button>
+          <button class="btn btn-danger" (click)="deleteCity()">Delete</button>
         </div>
       </div>
     </div>
@@ -48,14 +48,14 @@
           <div class="group-gap">
             <div class="d-block my-3">
               <div class="mb-3"><p>Click here to add a new city !</p>
-                <input [ngClass]="{ 'is-invalid': submitted }" class="custom-select" style="border:1px solid grey"
+                <input [ngClass]="{ 'is-invalid': submitted }" class="custom-select input1"
                        type="text" matInput
                        [formControl]="myControl" [matAutocomplete]="auto">
                 <div *ngIf="submitted" class="invalid-feedback">
                   <div>Please select a city from the list !</div>
                 </div>
                 <mat-autocomplete #auto="matAutocomplete">
-                  <mat-option style="margin-left:250px;" *ngFor="let option of filteredOptions | async"
+                  <mat-option class="options" *ngFor="let option of filteredOptions | async"
                               [value]="option">
                     {{option}}
                   </mat-option>
