@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {routing} from './app.routing';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import {TemperatureConverterPipe} from '../services/temperature-converter.pipe';
+import {TemperatureConverterPipe} from './pipes/temperature-converter.pipe';
 import {MatAutocompleteModule,MatInputModule,MatTableModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ManageWeatherComponent } from './manage-weather/manage-weather.component';

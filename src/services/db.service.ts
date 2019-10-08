@@ -18,9 +18,9 @@ export class DbService {
       'Dijon',
     ],
 
-    login: 'a',
+    login: 'aa@aa.aa',
 
-    password: 'a'
+    password: 'aa'
 
   },
 
