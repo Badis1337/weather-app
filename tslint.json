@@ -31,6 +31,8 @@
       true,
       140
     ],
+    "whitespace": false,
+    "no-trailing-whitespace": false,
     "member-access": false,
     "member-ordering": [
       true,

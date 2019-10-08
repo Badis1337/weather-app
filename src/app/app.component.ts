@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'weather';
+  isShown=false;
+
+  logout() {
+    localStorage.clear();
+  }
+
+  getLocalStorage() {
+    if(localStorage.length>0) {
+      return 1;
+    } else {
+      return null ;
+    }
+  }
+
 }
